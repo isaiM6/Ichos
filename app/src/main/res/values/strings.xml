@@ -24,4 +24,6 @@
     <string name="popularity">Popularity</string>
     <string name="date">Date</string>
     <string name="sort_by">Sort by:</string>
+
+    <string name="wav_label">Wav Analysis</string>
 </resources>
