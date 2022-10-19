@@ -11,6 +11,10 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
+import com.daclink.drew.sp22.cst438_project01_start.User;
+import com.daclink.drew.sp22.cst438_project01_start.UserDAO;
+import com.daclink.drew.sp22.cst438_project01_start.UserDb;
+
 //UserDao test
 @RunWith(AndroidJUnit4.class)
 public class UserDAO_Test {

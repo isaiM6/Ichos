@@ -1,4 +1,4 @@
-package com.daclink.drew.sp22.cst438_project01_starter;
+package com.daclink.drew.sp22.cst438_project01_start;
 
 import android.content.DialogInterface;
 
@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.daclink.drew.sp22.cst438_project01_starter.R;
 import com.daclink.drew.sp22.cst438_project01_starter.databinding.ActivityNewsBinding;
 
 import java.util.List;

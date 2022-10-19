@@ -6,6 +6,7 @@ import android.widget.Button;
 
 import androidx.test.rule.ActivityTestRule;
 
+import com.daclink.drew.sp22.cst438_project01_start.MainActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.junit.After;

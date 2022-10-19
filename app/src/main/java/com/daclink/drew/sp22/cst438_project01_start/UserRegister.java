@@ -1,4 +1,4 @@
-package com.daclink.drew.sp22.cst438_project01_starter;
+package com.daclink.drew.sp22.cst438_project01_start;
 
 import android.os.Bundle;
 
@@ -9,11 +9,10 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentFirstBinding;
+import com.daclink.drew.sp22.cst438_project01_starter.R;
 import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentUserRegisterBinding;
 
 /**

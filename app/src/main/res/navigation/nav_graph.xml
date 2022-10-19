@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.daclink.drew.sp22.cst438_project01_starter.FirstFragment"
+        android:name="com.daclink.drew.sp22.cst438_project01_start.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.daclink.drew.sp22.cst438_project01_starter.SecondFragment"
+        android:name="com.daclink.drew.sp22.cst438_project01_start.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/userRegister"
-        android:name="com.daclink.drew.sp22.cst438_project01_starter.UserRegister"
+        android:name="com.daclink.drew.sp22.cst438_project01_start.UserRegister"
         android:label="fragment_user_register"
         tools:layout="@layout/fragment_user_register" >
         <action

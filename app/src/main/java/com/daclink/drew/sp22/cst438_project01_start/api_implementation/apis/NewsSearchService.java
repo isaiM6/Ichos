@@ -1,10 +1,10 @@
-package com.daclink.drew.sp22.cst438_project01_starter.api_implementation.apis;
+package com.daclink.drew.sp22.cst438_project01_start.api_implementation.apis;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-import com.daclink.drew.sp22.cst438_project01_starter.api_implementation.models.NewsResultsResponse;
+import com.daclink.drew.sp22.cst438_project01_start.api_implementation.models.NewsResultsResponse;
 
 /**
  * Interface storing the get requests used to access the news API

@@ -1,4 +1,4 @@
-package com.daclink.drew.sp22.cst438_project01_starter.api_implementation.view_model;
+package com.daclink.drew.sp22.cst438_project01_start.api_implementation.view_model;
 
 import android.app.Application;
 
@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.daclink.drew.sp22.cst438_project01_starter.api_implementation.models.NewsResultsResponse;
-import com.daclink.drew.sp22.cst438_project01_starter.api_implementation.repository.NewsRepository;
+import com.daclink.drew.sp22.cst438_project01_start.api_implementation.repository.NewsRepository;
+import com.daclink.drew.sp22.cst438_project01_start.api_implementation.models.NewsResultsResponse;
 
 /**
  * The view model used to access the news API through the repository. Used by the View to
