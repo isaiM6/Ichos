@@ -1,4 +1,4 @@
-package com.daclink.drew.sp22.cst438_project01_start;
+package com.daclink.drew.sp22.cst438_project01_starter;
 
 import android.Manifest;
 
@@ -27,7 +27,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.daclink.drew.sp22.cst438_project01_starter.R;
 import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentSecondBinding;
 
 

@@ -1,4 +1,4 @@
-package com.daclink.drew.sp22.cst438_project01_start;
+package com.daclink.drew.sp22.cst438_project01_starter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.daclink.drew.sp22.cst438_project01_starter.R;
 import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentFirstBinding;
 
 import java.util.List;

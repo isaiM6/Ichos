@@ -1,4 +1,4 @@
-package com.daclink.drew.sp22.cst438_project01_start.api_implementation;
+package com.daclink.drew.sp22.cst438_project01_starter.api_implementation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.daclink.drew.sp22.cst438_project01_start.api_implementation.models.NewsResult;
+import com.daclink.drew.sp22.cst438_project01_starter.api_implementation.models.NewsResult;
 import com.daclink.drew.sp22.cst438_project01_starter.R;
 
 import java.util.ArrayList;

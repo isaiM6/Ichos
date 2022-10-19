@@ -1,4 +1,4 @@
-package com.daclink.drew.sp22.cst438_project01_start;
+package com.daclink.drew.sp22.cst438_project01_starter;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;

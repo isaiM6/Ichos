@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.daclink.drew.sp22.cst438_project01_start.MainActivity">
+    tools:context="com.daclink.drew.sp22.cst438_project01_starter.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

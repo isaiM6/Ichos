@@ -1,11 +1,11 @@
-package com.daclink.drew.sp22.cst438_project01_start.api_implementation.repository;
+package com.daclink.drew.sp22.cst438_project01_starter.api_implementation.repository;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.daclink.drew.sp22.cst438_project01_start.api_implementation.apis.NewsSearchService;
-import com.daclink.drew.sp22.cst438_project01_start.api_implementation.models.NewsResultsResponse;
+import com.daclink.drew.sp22.cst438_project01_starter.api_implementation.apis.NewsSearchService;
+import com.daclink.drew.sp22.cst438_project01_starter.api_implementation.models.NewsResultsResponse;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

@@ -6,8 +6,6 @@ import android.widget.Button;
 
 import androidx.test.rule.ActivityTestRule;
 
-import com.daclink.drew.sp22.cst438_project01_start.MainActivity;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
