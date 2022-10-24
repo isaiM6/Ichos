@@ -17,6 +17,7 @@ import android.media.AudioRecord;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
+import android.util.Log;
 import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +30,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentSecondBinding;
-
 
 /**
  * Fragment displaying the search page
@@ -89,6 +89,7 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
 
         binding.logoutBtn.setOnClickListener(view1 -> logout());
         binding.wavTesting.setOnClickListener((View.OnClickListener) this);
+
         binding.startRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
