@@ -54,11 +54,15 @@ public class UserRegister extends Fragment {
                     if (newPassword.equals(newVerPassword)) {
                         mUserDAO.insertUser(new User(uName, newPassword, ""));
                         Toast.makeText(getActivity(),"User created!",Toast.LENGTH_SHORT).show();
+                        NavHostFragment.findNavController(UserRegister.this)
+                                .navigate(R.id.action_userRegister_to_FirstFragment);
                     } else {
                         Toast.makeText(getActivity(),"Passwords should be the same!",Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(getActivity(),"User already exists!",Toast.LENGTH_SHORT).show();
+                    NavHostFragment.findNavController(UserRegister.this)
+                            .navigate(R.id.action_userRegister_to_FirstFragment);
                 }
 
             }

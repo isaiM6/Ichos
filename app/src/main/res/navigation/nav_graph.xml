@@ -22,6 +22,7 @@
             android:id="@+id/action_FirstFragment_to_userRegister"
             app:destination="@id/userRegister" />
     </fragment>
+
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.daclink.drew.sp22.cst438_project01_starter.SecondFragment"
@@ -31,7 +32,12 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+
+        <action
+            android:id="@+id/action_SecondFragment_to_WavAnalysis"
+            app:destination="@id/WavAnalysis" />
     </fragment>
+
     <fragment
         android:id="@+id/userRegister"
         android:name="com.daclink.drew.sp22.cst438_project01_starter.UserRegister"
@@ -40,5 +46,14 @@
         <action
             android:id="@+id/action_userRegister_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/WavAnalysis"
+        android:name="com.daclink.drew.sp22.cst438_project01_starter.WavAnalysis"
+        android:label="@string/wav_label"
+        tools:layout="@layout/wav_analysis">
+
+
     </fragment>
 </navigation>

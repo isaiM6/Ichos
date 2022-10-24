@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.AudioFormat;
@@ -68,14 +69,11 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
         if (getArguments() != null) {
             int userId = getArguments().getInt(FirstFragment.USER_ID);
             user = userDAO.getUser(userId);
-            if (user == null) {
-                logout();
-            }
-        } else {
-            logout();
-        }
+            if(user == null) { logout(); }
+        } else { logout(); }
 
         binding = FragmentSecondBinding.inflate(inflater, container, false);
+
         return binding.getRoot();
     }
 
@@ -90,6 +88,7 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
 
 
         binding.logoutBtn.setOnClickListener(view1 -> logout());
+        binding.wavTesting.setOnClickListener((View.OnClickListener) this);
         binding.startRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -375,6 +374,11 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        if(v.getId() == R.id.wavTesting) {
+
+            NavHostFragment.findNavController(SecondFragment.this)
+                    .navigate(R.id.action_SecondFragment_to_WavAnalysis);
+        }
 
     }
 
