@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserRegister">
+    tools:context="com.daclink.drew.sp22.cst438_project01_starter.UserRegister">
 
     <EditText
         android:id="@+id/userNameRegister"

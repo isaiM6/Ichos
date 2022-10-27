@@ -1,12 +1,13 @@
 package com.daclink.drew.sp22.cst438_project01_starter.api_implementation.models;
 
+import com.daclink.drew.sp22.cst438_project01_starter.api_implementation.apis.NewsSearchService;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Used to store the result of a query of the news API
  * @link newsAPI.org
- * @see com.daclink.drew.sp22.cst438_project01_starter.api_implementation.apis.NewsSearchService
+ * @see NewsSearchService
  */
 public class NewsResult {
     @SerializedName("source")

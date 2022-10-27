@@ -6,8 +6,6 @@ import android.widget.Button;
 
 import androidx.test.rule.ActivityTestRule;
 
-import com.google.android.material.textfield.TextInputEditText;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;

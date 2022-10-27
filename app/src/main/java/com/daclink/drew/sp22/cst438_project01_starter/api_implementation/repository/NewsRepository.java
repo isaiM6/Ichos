@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Used to create live data from the search results of a query of the news API
  * @link newsAPI.org
- * @see com.daclink.drew.sp22.cst438_project01_starter.api_implementation.apis.NewsSearchService
+ * @see NewsSearchService
  */
 public class NewsRepository {
     private static final String NEWS_SEARCH_BASE_URL = "https://newsapi.org/";
