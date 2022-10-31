@@ -17,6 +17,17 @@
     <string name="login_error">Invalid username or password</string>
     <string name="logout">Logout</string>
     <string name="search">Search</string>
+    <string name="record">Record</string>
+    <string name="stopRecord">Stop Recording</string>
+    <string name="play">Play</string>
+    <string name="chartPlaceholder">Chart/Graph Placeholder Image</string>
+
+    <string name="ichosLogo">Ichos Logo</string>
+
+    <string name="register">Register</string>
+    <string name="stopPlaying">Stop Playing</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="update_filters">Update Filters</string>
