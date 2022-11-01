@@ -95,7 +95,24 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 if (checkPermissions() == true) {
                     startRecording();
-                    Toast.makeText(getActivity(), "Recording started", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Recording started of sound 1", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                            Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    }, 1);
+                }
+
+            }
+        });
+
+        binding.startRecord2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkPermissions() == true) {
+                    startRecording();
+                    Toast.makeText(getActivity(), "Recording started of sound 2", Toast.LENGTH_SHORT).show();
 
                 } else {
 
@@ -111,7 +128,14 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 stopRecording();
-                Toast.makeText(getActivity(), "Stopped Recording", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Stopped Recording of Sound 1", Toast.LENGTH_SHORT).show();
+            }
+        });
+        binding.stopRecord2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stopRecording2();
+                Toast.makeText(getActivity(), "Stopped Recording of Sound 2", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -123,7 +147,23 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
                     mediaPlayer.setDataSource(recordingFilePath);
                     mediaPlayer.prepare();
                     mediaPlayer.start();
-                    Toast.makeText(getActivity(), "Start playing", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Start playing sound 1", Toast.LENGTH_SHORT).show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        binding.playBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mediaPlayer = new MediaPlayer();
+                try {
+                    mediaPlayer.setDataSource(recordingFilePath);
+                    mediaPlayer.prepare();
+                    mediaPlayer.start();
+                    Toast.makeText(getActivity(), "Start playing sound 2", Toast.LENGTH_SHORT).show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -138,7 +178,19 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
 
                     mediaPlayer.stop();
                     mediaPlayer.release();
-                    Toast.makeText(getActivity(), "Stopped playing", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Stopped playing sound 1", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        binding.stopPlayBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mediaPlayer != null) {
+
+                    mediaPlayer.stop();
+                    mediaPlayer.release();
+                    Toast.makeText(getActivity(), "Stopped playing sound 2", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -152,13 +204,43 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
         if (!file.exists()) {
             file.mkdirs();
         }
-        recordingFilePath = file.getAbsolutePath() + "/" + System.currentTimeMillis() +
+        recordingFilePath = file.getAbsolutePath() + "/sound1" +
+                AUDIO_RECORDER_FILE_EXT_WAV;
+
+        return (recordingFilePath);
+    }
+
+    private String getFilename2() {
+        //String filepath = Environment.getExternalStorageDirectory().getPath();
+        String filepath = getActivity().getExternalFilesDir(Environment.DIRECTORY_DCIM).getPath();
+        File file = new File(filepath, AUDIO_RECORDER_FOLDER);
+
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        recordingFilePath = file.getAbsolutePath() + "/sound2" +
                 AUDIO_RECORDER_FILE_EXT_WAV;
 
         return (recordingFilePath);
     }
 
     private String getTempFilename() {
+        String filepath = getActivity().getExternalFilesDir(Environment.DIRECTORY_DCIM).getPath();
+        File file = new File(filepath, AUDIO_RECORDER_FOLDER);
+
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+
+        File tempFile = new File(filepath, AUDIO_RECORDER_TEMP_FILE);
+
+        if (tempFile.exists())
+            tempFile.delete();
+
+        return (file.getAbsolutePath() + "/" + AUDIO_RECORDER_TEMP_FILE);
+    }
+
+    private String getTempFilename2() {
         String filepath = getActivity().getExternalFilesDir(Environment.DIRECTORY_DCIM).getPath();
         File file = new File(filepath, AUDIO_RECORDER_FOLDER);
 
@@ -259,8 +341,30 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
         deleteTempFile();
     }
 
+    private void stopRecording2() {
+        if (null != recorder){
+            isRecording = false;
+
+            int i = recorder.getState();
+            if (i==1)
+                recorder.stop();
+            recorder.release();
+
+            recorder = null;
+            recordingThread = null;
+        }
+
+        copyWaveFile(getTempFilename2(),getFilename2());
+        deleteTempFile2();
+    }
+
     private void deleteTempFile() {
         File file = new File(getTempFilename());
+        file.delete();
+    }
+
+    private void deleteTempFile2() {
+        File file = new File(getTempFilename2());
         file.delete();
     }
 

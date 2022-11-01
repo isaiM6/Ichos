@@ -8,89 +8,133 @@
 
 
     <Button
+        android:id="@+id/startRecord2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginBottom="29dp"
+        android:text="@string/record"
+        app:layout_constraintBottom_toTopOf="@+id/stopRecord2"
+        app:layout_constraintStart_toStartOf="@+id/stopRecord2" />
+
+    <Button
+        android:id="@+id/stopRecord2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="331dp"
+        android:layout_marginEnd="22dp"
+        android:text="@string/stopRecord"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/playBtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:text="@string/play"
+        app:layout_constraintEnd_toEndOf="@+id/stopPlayBtn2"
+        app:layout_constraintStart_toStartOf="@+id/stopPlayBtn2"
+        app:layout_constraintTop_toBottomOf="@+id/stopRecord2" />
+
+    <Button
+        android:id="@+id/stopPlayBtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="38dp"
+        android:text="@string/stopPlaying"
+        android:textAllCaps="false"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playBtn2" />
+
+    <Button
         android:id="@+id/startRecord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/record"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.200" />
+        app:layout_constraintBottom_toTopOf="@+id/stopRecord"
+        app:layout_constraintEnd_toEndOf="@+id/stopRecord" />
 
     <Button
         android:id="@+id/stopRecord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
         android:text="@string/stopRecord"
-        app:layout_constraintStart_toEndOf="@+id/startRecord"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/stopRecord2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/playBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="36dp"
         android:text="@string/play"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.20"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.750"
-        />
+        app:layout_constraintEnd_toEndOf="@+id/stopPlayBtn"
+        app:layout_constraintStart_toStartOf="@+id/stopPlayBtn"
+        app:layout_constraintTop_toBottomOf="@+id/stopRecord" />
 
     <Button
         android:id="@+id/stopPlayBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="46dp"
         android:text="@string/stopPlaying"
         android:textAllCaps="false"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.750" />
-
+        app:layout_constraintTop_toBottomOf="@+id/playBtn" />
 
     <Button
         android:id="@+id/wavTesting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
         android:text="@string/wav_label"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.91"
-        app:layout_constraintHorizontal_bias="0.15" />
-
+        app:layout_constraintTop_toBottomOf="@+id/stopPlayBtn" />
 
     <Button
         android:id="@+id/logout_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="29dp"
         android:text="@string/logout"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9"
-        app:layout_constraintHorizontal_bias="0.85" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="42dp"
+        android:text="@string/sound1"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="21dp"
+        android:text="@string/sound2"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/logout_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
