@@ -6,9 +6,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.daclink.drew.sp22.cst438_project01_starter.databinding.WavAnalysisBinding;
 import com.github.mikephil.charting.charts.LineChart;
@@ -70,6 +72,12 @@ public class WavAnalysis extends Fragment {
 
 
                 Log.d("wavAnalysis", "WavAnalysisBtn clicked");
+            }
+        });
+        binding.amplitudaTestBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(WavAnalysis.this).navigate(R.id.action_WavAnalysis_to_Amplituda);
             }
         });
     }
