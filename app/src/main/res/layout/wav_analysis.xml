@@ -6,33 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".WavAnalysis">
 
+
     <TextView
         android:id="@+id/wav_lbl"
         android:layout_width="240dp"
         android:layout_height="56dp"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/wav_label"
+        android:textColor="#FFFFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182"
-        android:textColor="#FFFFFFFF"/>
+        app:layout_constraintVertical_bias="0.072" />
 
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="230dp"
-        android:layout_height="345dp"
-        android:layout_marginTop="132dp"
-        android:contentDescription="@string/chartPlaceholder"
-        android:src="@drawable/waveformichos2"
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="152dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/wav_analysis_input"
