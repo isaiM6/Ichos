@@ -41,7 +41,7 @@ public class Amplitude extends Fragment {
         super.onCreate(savedInstanceState);
         Amplituda amplituda = new Amplituda(getContext());
         amplituda.setLogConfig(Log.ERROR, true);
-        amplituda.processAudio("/storage/self/primary/Android/data/com.daclink.drew.sp22.cst438_project01_starter/files/DCIM/AudioRecorder/1666998261700.wav").get(result -> {
+        amplituda.processAudio("/storage/self/primary/Android/data/com.daclink.drew.sp22.cst438_project01_starter/files/DCIM/AudioRecorder/instrument1.wav").get(result -> {
             List<Integer> amplitudesData = result.amplitudesAsList();
             for(int i = 0; i < amplitudesData.size(); i++) {
                 Log.d("Amplituda", String.valueOf(amplitudesData.get(i)));
