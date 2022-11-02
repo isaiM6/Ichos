@@ -37,4 +37,5 @@
     <string name="sort_by">Sort by:</string>
 
     <string name="wav_label">Wav Analysis</string>
+    <string name="amplituda_label">Amplituda</string>
 </resources>

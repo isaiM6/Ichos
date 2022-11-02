@@ -54,6 +54,17 @@
         android:label="@string/wav_label"
         tools:layout="@layout/wav_analysis">
 
+        <action
+            android:id="@+id/action_WavAnalysis_to_Amplituda"
+            app:destination="@id/Amplituda" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/Amplituda"
+        android:name="com.daclink.drew.sp22.cst438_project01_starter.Amplitude"
+        android:label="@string/amplituda_label"
+        tools:layout="@layout/amplituda">
 
     </fragment>
 </navigation>

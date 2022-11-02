@@ -71,6 +71,11 @@ dependencies {
     //OkHttp
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
 
+    // Amplituda (in testing)
+    implementation 'com.github.lincollincol:amplituda:2.2.2'
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     implementation 'androidx.appcompat:appcompat:1.4.1'
