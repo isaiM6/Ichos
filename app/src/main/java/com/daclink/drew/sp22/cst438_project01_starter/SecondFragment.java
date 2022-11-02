@@ -22,10 +22,12 @@ import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -46,7 +48,9 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
     private int bufferSize = 0;
     private Thread recordingThread = null;
     private boolean isRecording = false;
+    private boolean isPlaying = false;
     private String recordingFilePath = null;
+    private String recordingFilePath2 = null;
 
     private static final int RECORDER_BPP = 16;
     private static final String AUDIO_RECORDER_FILE_EXT_WAV = ".wav";
@@ -88,63 +92,15 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
 
 
         binding.logoutBtn.setOnClickListener(view1 -> logout());
+        binding.startRecordBtn.setOnClickListener(view1 -> clickRecord(binding.startRecordBtn, 1));
+        binding.startRecordBtn2.setOnClickListener(view1 -> clickRecord(binding.startRecordBtn2, 2));
+        binding.startPlayBtn.setOnClickListener(view1 -> clickPlay(binding.startPlayBtn, 1));
+        binding.startPlayBtn2.setOnClickListener(view1 -> clickPlay(binding.startPlayBtn2, 2));
         binding.wavTesting.setOnClickListener((View.OnClickListener) this);
 
-        binding.startRecord.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (checkPermissions() == true) {
-                    startRecording();
-                    Toast.makeText(getActivity(), "Recording started", Toast.LENGTH_SHORT).show();
-
-                } else {
-
-                    ActivityCompat.requestPermissions(getActivity(), new String[]{
-                            Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    }, 1);
-                }
-
-            }
-        });
-
-        binding.stopRecord.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stopRecording();
-                Toast.makeText(getActivity(), "Stopped Recording", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        binding.playBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mediaPlayer = new MediaPlayer();
-                try {
-                    mediaPlayer.setDataSource(recordingFilePath);
-                    mediaPlayer.prepare();
-                    mediaPlayer.start();
-                    Toast.makeText(getActivity(), "Start playing", Toast.LENGTH_SHORT).show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });
-
-        binding.stopPlayBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mediaPlayer != null) {
-
-                    mediaPlayer.stop();
-                    mediaPlayer.release();
-                    Toast.makeText(getActivity(), "Stopped playing", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
 
-    private String getFilename() {
+    private void setFilename(int recNum) {
         //String filepath = Environment.getExternalStorageDirectory().getPath();
         String filepath = getActivity().getExternalFilesDir(Environment.DIRECTORY_DCIM).getPath();
         File file = new File(filepath, AUDIO_RECORDER_FOLDER);
@@ -152,10 +108,16 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
         if (!file.exists()) {
             file.mkdirs();
         }
-        recordingFilePath = file.getAbsolutePath() + "/" + System.currentTimeMillis() +
-                AUDIO_RECORDER_FILE_EXT_WAV;
 
-        return (recordingFilePath);
+        if(recNum == 1){
+            recordingFilePath = file.getAbsolutePath() + "/" + "instrument1" +
+                    AUDIO_RECORDER_FILE_EXT_WAV;
+        } else if (recNum == 2){
+                recordingFilePath2 = file.getAbsolutePath() + "/" + "instrument2" +
+                    AUDIO_RECORDER_FILE_EXT_WAV;
+        }
+
+        return;
     }
 
     private String getTempFilename() {
@@ -174,15 +136,63 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
         return (file.getAbsolutePath() + "/" + AUDIO_RECORDER_TEMP_FILE);
     }
 
+    private void clickRecord(ImageView recordingBtn, int recNum) {
+        if (checkPermissions() && !isRecording) {
+            startRecording();
+            isRecording = true;
+
+            Toast.makeText(getActivity(), "Recording started", Toast.LENGTH_SHORT).show();
+            recordingBtn.setImageDrawable(ContextCompat.getDrawable(getContext(),R.drawable.recording_button_stop));
+
+        } else if (!checkPermissions()) {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{
+                    Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE
+            }, 1);
+        } else if (isRecording){
+            stopRecording(recNum);
+            isRecording = false;
+            recordingBtn.setImageDrawable(ContextCompat.getDrawable(getContext(),R.drawable.recording_button));
+            Toast.makeText(getActivity(), "Stopped Recording", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
+    private void clickPlay(ImageView playBtn, int fileNum) {
+        if (!isPlaying) {
+            mediaPlayer = new MediaPlayer();
+            try {
+                if(fileNum == 1)
+                    mediaPlayer.setDataSource(recordingFilePath);
+                else if (fileNum == 2)
+                    mediaPlayer.setDataSource(recordingFilePath2);
+                mediaPlayer.prepare();
+                mediaPlayer.start();
+                isPlaying = true;
+                playBtn.setImageDrawable(ContextCompat.getDrawable(getContext(),R.drawable.stop_button));
+                Toast.makeText(getActivity(), "Start playing", Toast.LENGTH_SHORT).show();
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        mp.release();
+                        isPlaying = false;
+                        playBtn.setImageDrawable(ContextCompat.getDrawable(getContext(),R.drawable.play_button));
+                    }
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            isPlaying = false;
+            playBtn.setImageDrawable(ContextCompat.getDrawable(getContext(),R.drawable.play_button));
+            Toast.makeText(getActivity(), "Stopped playing", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void startRecording() {
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
         recorder = new AudioRecord(MediaRecorder.AudioSource.MIC,
@@ -242,7 +252,7 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    private void stopRecording() {
+    private void stopRecording(int fileNum) {
         if (null != recorder){
             isRecording = false;
 
@@ -254,8 +264,12 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
             recorder = null;
             recordingThread = null;
         }
+        String filename;
+        setFilename(fileNum);
+        filename = (fileNum == 1) ? recordingFilePath : recordingFilePath2;
 
-        copyWaveFile(getTempFilename(),getFilename());
+
+        copyWaveFile(getTempFilename(), filename);
         deleteTempFile();
     }
 
