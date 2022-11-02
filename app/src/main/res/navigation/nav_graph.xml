@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="com.daclink.drew.sp22.cst438_project01_starter.FirstFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/login"
         tools:layout="@layout/fragment_first">
 
         <action

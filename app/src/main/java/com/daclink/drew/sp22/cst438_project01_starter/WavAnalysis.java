@@ -16,12 +16,12 @@ import java.util.List;
 
 
 public class WavAnalysis extends Fragment {
-    public static final String USER_ID = "UserId";
+    //public static final String USER_ID = "UserId";
 
     private @NonNull WavAnalysisBinding binding;
 
-    SharedPreferences sharedPref;
-    private UserDb db;
+    //SharedPreferences sharedPref;
+    //private UserDb db;
     UserDAO userDAO;
 
 
