@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.concurrent.Executor;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +17,7 @@ import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.os.Environment;
@@ -32,6 +34,12 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentSecondBinding;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
 /**
  * Fragment displaying the search page
@@ -40,17 +48,14 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
 
     private FragmentSecondBinding binding;
 
-    private User user;
-    private UserDAO userDAO;
-
     private AudioRecord recorder = null;
     private MediaPlayer mediaPlayer;
     private int bufferSize = 0;
     private Thread recordingThread = null;
     private boolean isRecording = false;
     private boolean isPlaying = false;
-    private String recordingFilePath = null;
-    private String recordingFilePath2 = null;
+    private String recordingFilePath = "/storage/self/primary/Android/data/com.daclink.drew.sp22.cst438_project01_starter/files/DCIM/AudioRecorder/instrument1.wav";
+    private String recordingFilePath2 = "/storage/self/primary/Android/data/com.daclink.drew.sp22.cst438_project01_starter/files/DCIM/AudioRecorder/instrument2.wav";
 
     private static final int RECORDER_BPP = 16;
     private static final String AUDIO_RECORDER_FILE_EXT_WAV = ".wav";
@@ -61,21 +66,15 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
     private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
     short[] audioData;
 
+    public GoogleSignInClient gsc;
+    public GoogleSignInOptions gso;
+
 
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-
-        // Check if logged in
-        userDAO = UserDb.getInstance(getContext()).getPersonDAO();
-        if (getArguments() != null) {
-            int userId = getArguments().getInt(FirstFragment.USER_ID);
-            user = userDAO.getUser(userId);
-            if(user == null) { logout(); }
-        } else { logout(); }
-
         binding = FragmentSecondBinding.inflate(inflater, container, false);
 
         return binding.getRoot();
@@ -84,6 +83,20 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        gso = new
+                GoogleSignInOptions.
+                        Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        gsc = GoogleSignIn.getClient(getActivity(), gso);
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getActivity());
+        if (acct != null) {
+            String personName = acct.getDisplayName();
+            String personGivenName = acct.getGivenName();
+            String personFamilyName = acct.getFamilyName();
+            String personEmail = acct.getEmail();
+        }
 
         bufferSize = AudioRecord.getMinBufferSize
                 (RECORDER_SAMPLERATE, RECORDER_CHANNELS, RECORDER_AUDIO_ENCODING) * 3;
@@ -380,12 +393,21 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
      * returns to the login screen.
      */
     public void logout() {
-        SharedPreferences sharedPref = requireContext().getSharedPreferences("SAVED_PREFS", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt(FirstFragment.USER_ID, -1).apply();
+        signOut();
         NavHostFragment.findNavController(SecondFragment.this)
                 .navigate(R.id.action_SecondFragment_to_FirstFragment);
     }
+
+    private void signOut() {
+        gsc.signOut()
+                .addOnCompleteListener(getActivity(), new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...
+                    }
+                });
+    }
+
 
     @Override
     public void onClick(View v) {

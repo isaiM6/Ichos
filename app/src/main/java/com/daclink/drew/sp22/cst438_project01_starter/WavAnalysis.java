@@ -30,14 +30,8 @@ import linc.com.amplituda.exceptions.io.AmplitudaIOException;
 
 
 public class WavAnalysis extends Fragment {
-    //public static final String USER_ID = "UserId";
 
     private @NonNull WavAnalysisBinding binding;
-
-    //SharedPreferences sharedPref;
-    //private UserDb db;
-    UserDAO userDAO;
-
 
     @Override
     public View onCreateView(
@@ -113,9 +107,12 @@ public class WavAnalysis extends Fragment {
                 LineDataSet linedataset = new LineDataSet(amplitude1, "Amplitude1");
                 LineDataSet linedataset2 = new LineDataSet(amplitude2, "Amplitude2");
                 linedataset2.setColor(Color.RED);
+                linedataset.setColor(Color.GREEN);
                 linedataset.setDrawCircles(false);
                 linedataset2.setDrawCircles(false);
-                chart.animateY(5000);
+                linedataset.setLineWidth(2f);
+                linedataset2.setLineWidth(2f);
+                chart.animateY(3000);
                 LineData data = new LineData(linedataset, linedataset2);
 //                linedataset.setColors(ColorTemplate.COLORFUL_COLORS);
                 chart.setData(data);

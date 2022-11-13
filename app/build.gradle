@@ -74,6 +74,9 @@ dependencies {
     // Amplituda (in testing)
     implementation 'com.github.lincollincol:amplituda:2.2.2'
 
+    // Google
+    implementation 'com.google.android.gms:play-services-auth:20.3.0'
+
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
     implementation "androidx.room:room-runtime:$room_version"
