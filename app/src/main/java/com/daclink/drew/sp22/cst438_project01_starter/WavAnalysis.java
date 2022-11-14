@@ -129,8 +129,18 @@ public class WavAnalysis extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(WavAnalysis.this).navigate(R.id.action_WavAnalysis_to_Amplituda);
+
             }
         });
+
+        binding.fftAnalysisBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(WavAnalysis.this).navigate(R.id.action_WavAnalysis_to_FFTAnalysis);
+
+            }
+        });
+
     }
 
     @Override

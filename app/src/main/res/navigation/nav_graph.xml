@@ -57,6 +57,9 @@
         <action
             android:id="@+id/action_WavAnalysis_to_Amplituda"
             app:destination="@id/Amplituda" />
+        <action
+            android:id="@+id/action_WavAnalysis_to_FFTAnalysis"
+            app:destination="@id/FFTAnalysis" />
 
     </fragment>
 
@@ -67,4 +70,9 @@
         tools:layout="@layout/amplituda">
 
     </fragment>
+    <fragment
+        android:id="@+id/FFTAnalysis"
+        android:name="com.daclink.drew.sp22.cst438_project01_starter.FFTAnalysis"
+        android:label="fft_analyzing"
+        tools:layout="@layout/fft_analyzing" />
 </navigation>
