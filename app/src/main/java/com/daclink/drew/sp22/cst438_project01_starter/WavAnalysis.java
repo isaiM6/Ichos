@@ -125,12 +125,12 @@ public class WavAnalysis extends Fragment {
                 Log.d("wavAnalysis", "WavAnalysisBtn clicked");
             }
         });
-        binding.amplitudaTestBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(WavAnalysis.this).navigate(R.id.action_WavAnalysis_to_Amplituda);
-            }
-        });
+//        binding.amplitudaTestBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                NavHostFragment.findNavController(WavAnalysis.this).navigate(R.id.action_WavAnalysis_to_Amplituda);
+//            }
+//        });
     }
 
     @Override
