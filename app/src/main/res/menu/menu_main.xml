@@ -1,10 +1,34 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.daclink.drew.sp22.cst438_project01_starter.com.daclink.drew.sp22.cst438_project01_start.MainActivity">
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+    tools:context="com.daclink.drew.sp22.cst438_project01_starter.com.daclink.drew.sp22.cst438_project01_start.MainActivity"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/help_app"
+            android:icon="@drawable/ic_help_app"
+            android:orderInCategory="100"
+            android:title="App Help"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/help_graphs"
+            android:icon="@drawable/ic_help_graphs"
+            android:orderInCategory="100"
+            android:title="Graph help"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/ic_home"
+            android:orderInCategory="100"
+            android:title="Home"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_settings"
+            android:icon="@drawable/ic_settings"
+            android:orderInCategory="100"
+            android:title="Settings"
+            app:showAsAction="never" />
+    </group>
 </menu>

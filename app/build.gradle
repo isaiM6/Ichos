@@ -38,6 +38,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.junit.jupiter:junit-jupiter'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support.test:design:1.0.2'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     def room_version = "2.4.1"
     def nav_version = "2.4.1"
