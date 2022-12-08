@@ -113,7 +113,7 @@ public class WavAnalysis extends Fragment {
                 LineDataSet linedataset = new LineDataSet(amplitude1, "Amplitude1");
                 LineDataSet linedataset2 = new LineDataSet(amplitude2, "Amplitude2");
                 linedataset2.setColor(Color.RED);
-                linedataset.setColor(Color.GREEN);
+                linedataset.setColor(Color.BLACK);
                 linedataset.setDrawCircles(false);
                 linedataset2.setDrawCircles(false);
                 chart.animateY(5000);
