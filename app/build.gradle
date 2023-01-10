@@ -71,10 +71,12 @@ dependencies {
     //OkHttp
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
 
-    // Amplituda (in testing)
+    // Amplituda
     implementation 'com.github.lincollincol:amplituda:2.2.2'
 
-    implementation 'com.github.wendykierp:JTransforms:3.1'
+    //Google Sign in
+    implementation 'com.google.android.gms:play-services-auth:20.3.0'
+
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 

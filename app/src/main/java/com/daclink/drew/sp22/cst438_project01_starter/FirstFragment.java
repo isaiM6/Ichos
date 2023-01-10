@@ -3,11 +3,13 @@ package com.daclink.drew.sp22.cst438_project01_starter;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,12 +19,15 @@ import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentFirstB
 
 import java.util.List;
 
+
+
 /**
  * Fragment displaying the login page
  */
 public class FirstFragment extends Fragment {
     public static final String USER_ID = "UserId";
     private FragmentFirstBinding binding;
+    private static final int REQUEST_CODE_GOOGLE_SIGN_IN = 1; /* unique request id */
 
     EditText mUsername, mPassword;
     TextView mErrorMessage;
@@ -81,6 +86,10 @@ public class FirstFragment extends Fragment {
         binding.registrationBtn.setOnClickListener(view1 -> register());
 
     }
+
+
+
+
 
     /**
      * Used to navigate to the user register fragment

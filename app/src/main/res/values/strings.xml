@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">CST438_Project01_Starter</string>
+    <string name="app_name">Ichos</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="first_fragment_label">Login</string>
+    <string name="second_fragment_label">Home</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
@@ -36,7 +36,9 @@
     <string name="date">Date</string>
     <string name="sort_by">Sort by:</string>
 
-    <string name="wav_label">Wav Analysis</string>
+    <string name="wav_label">Audio Analysis</string>
+    <string name="amplitude_label">Amplitude</string>
+
     <string name="amplituda_label">Amplituda</string>
     <string name="freq_label">Frequency (Hz)</string>
     <string name="fft_label">FFT Analysis</string>

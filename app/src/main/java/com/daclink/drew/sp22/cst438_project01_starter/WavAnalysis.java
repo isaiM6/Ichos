@@ -120,18 +120,9 @@ public class WavAnalysis extends Fragment {
 //                linedataset.setColors(ColorTemplate.COLORFUL_COLORS);
                 chart.setData(data);
 
-                System.out.println("LENGTH OF AMPLITUDE ARRAYLSIT: " + amplitude1.size());
-
 
 
                 Log.d("wavAnalysis", "WavAnalysisBtn clicked");
-            }
-        });
-        binding.amplitudaTestBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(WavAnalysis.this).navigate(R.id.action_WavAnalysis_to_Amplituda);
-
             }
         });
 
@@ -139,7 +130,6 @@ public class WavAnalysis extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(WavAnalysis.this).navigate(R.id.action_WavAnalysis_to_FFTAnalysis);
-
             }
         });
 
