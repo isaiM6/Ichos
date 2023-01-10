@@ -104,7 +104,7 @@ public class WaveDecoder {
 
     public static void main( String[] args ) throws FileNotFoundException, Exception
     {
-        WaveDecoder decoder = new WaveDecoder( new FileInputStream( "samples/sample.wav" ) );
+        WaveDecoder decoder = new WaveDecoder( new FileInputStream( "/storage/self/primary/Android/data/com.daclink.drew.sp22.cst438_project01_starter/files/DCIM/AudioRecorder/instrument1.wav" ) );
         float[] samples = new float[1024];
         int readSamples = 0;
         while( ( readSamples = decoder.readSamples( samples ) ) > 0 )

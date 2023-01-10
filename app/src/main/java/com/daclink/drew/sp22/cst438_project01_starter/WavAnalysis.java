@@ -120,6 +120,8 @@ public class WavAnalysis extends Fragment {
 //                linedataset.setColors(ColorTemplate.COLORFUL_COLORS);
                 chart.setData(data);
 
+                System.out.println("LENGTH OF AMPLITUDE ARRAYLSIT: " + amplitude1.size());
+
 
 
                 Log.d("wavAnalysis", "WavAnalysisBtn clicked");
