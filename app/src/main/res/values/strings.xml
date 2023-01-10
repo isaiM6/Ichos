@@ -40,4 +40,6 @@
     <string name="amplitude_label">Amplitude</string>
 
     <string name="amplituda_label">Amplituda</string>
+    <string name="freq_label">Frequency (Hz)</string>
+    <string name="fft_label">FFT Analysis</string>
 </resources>

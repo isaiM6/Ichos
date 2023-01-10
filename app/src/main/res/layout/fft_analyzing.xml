@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WavAnalysis">
+    tools:context=".FFTAnalysis">
 
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_width="240dp"
         android:layout_height="56dp"
         android:gravity="center_vertical|center_horizontal"
-        android:text="@string/wav_label"
+        android:text="@string/fft_label"
         android:textColor="#FFFFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,17 +23,17 @@
         app:layout_constraintVertical_bias="0.072" />
 
     <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chart"
+        android:id="@+id/fftchart"
         android:layout_width="382dp"
         android:layout_height="322dp"
         android:layout_marginBottom="108dp"
-        app:layout_constraintBottom_toTopOf="@+id/wav_analysis_btn"
+        app:layout_constraintBottom_toTopOf="@+id/fft_analysis_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/wav_analysis_input"
+        android:id="@+id/fft_analysis_input"
         android:layout_width="300dp"
         android:layout_height="49dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,10 +44,10 @@
         app:layout_constraintVertical_bias="0.768" />
 
     <Button
-        android:id="@+id/wav_analysis_btn"
+        android:id="@+id/fft_analysis_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/wav_label"
+        android:text="@string/fft_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.500"
@@ -55,19 +55,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.850" />
 
-    <Button
-        android:id="@+id/fft_analysis_btn"
+    <TextView
+        android:id="@+id/freq_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fft_label"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/freq_label"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/fftchart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.083" />
-
-
+        app:layout_constraintVertical_bias="0.945" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

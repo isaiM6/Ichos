@@ -113,7 +113,6 @@ public class WavAnalysis extends Fragment {
                 LineDataSet linedataset = new LineDataSet(amplitude1, "Amplitude1");
                 LineDataSet linedataset2 = new LineDataSet(amplitude2, "Amplitude2");
                 linedataset2.setColor(Color.RED);
-                linedataset.setColor(Color.BLACK);
                 linedataset.setDrawCircles(false);
                 linedataset2.setDrawCircles(false);
                 chart.animateY(5000);
@@ -126,12 +125,14 @@ public class WavAnalysis extends Fragment {
                 Log.d("wavAnalysis", "WavAnalysisBtn clicked");
             }
         });
-//        binding.amplitudaTestBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                NavHostFragment.findNavController(WavAnalysis.this).navigate(R.id.action_WavAnalysis_to_Amplituda);
-//            }
-//        });
+
+        binding.fftAnalysisBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(WavAnalysis.this).navigate(R.id.action_WavAnalysis_to_FFTAnalysis);
+            }
+        });
+
     }
 
     @Override
