@@ -1,4 +1,4 @@
-# CST499_ichos
+# Ichos
 
 -Luke Avra
 -Isai Molina
